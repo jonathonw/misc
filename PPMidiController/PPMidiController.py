@@ -24,6 +24,9 @@ def print_message(midi, textSlider, bgSlider, app):
         app.sendKey(atomac.AXKeyboard.LEFT)
       elif midi.getControllerNumber() == NEXT_CONTROLLER and midi.getControllerValue() == 127:
         app.sendKey(atomac.AXKeyboard.RIGHT)
+      elif midi.getControllerNumber() == BLANK_CONTROLLER and midi.getControllerValue() == 127:
+        pass
+        app.sendKey(atomac.AXKeyboard.F2)
       else:
         print 'CONTROLLER', midi.getControllerNumber(), midi.getControllerValue()
   except atomac._a11y.ErrorInvalidUIElement:
@@ -35,6 +38,7 @@ def main():
   pp = atomac.getAppRefByBundleId("com.renewedvision.ProPresenter4")
   textSlider = pp.findFirstR(AXRole="AXSlider", AXHelp="Slide transition time")
   bgSlider = pp.findFirstR(AXRole="AXSlider", AXHelp="Image/Video transition time")
+  print atomac.AXKeyboard.loadKeyboard()
   
   # Now start receiving MIDI messages
   print "Getting available MIDI controllers..."
