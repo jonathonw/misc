@@ -96,7 +96,9 @@ def main():
       midiout.sendMessage(rtmidi.MidiMessage.controllerEvent(MIDI_CHANNEL, PREV_CONTROLLER, OFF_VALUE))
       midiout.sendMessage(rtmidi.MidiMessage.controllerEvent(MIDI_CHANNEL, NEXT_CONTROLLER, OFF_VALUE))
       midiout.sendMessage(rtmidi.MidiMessage.controllerEvent(MIDI_CHANNEL, BLANK_TEXT_CONTROLLER, OFF_VALUE))
-      midiout.sendMessage(rtmidi.MidiMessage.controllerEvent(MIDI_CHANNEL, BLANK_ALL_CONTROLLER, OFF_VALUE))
+      midiout.sendMessage(rtmidi.MidiMessage.controllerEvent(MIDI_CHANNEL, BLANK_BG_CONTROLLER, OFF_VALUE))
+    midiout.sendMessage(rtmidi.MidiMessage.controllerEvent(MIDI_CHANNEL, BLANK_ALL_CONTROLLER, OFF_VALUE))
+    midiout.sendMessage(rtmidi.MidiMessage.controllerEvent(MIDI_CHANNEL, LOGO_CONTROLLER, OFF_VALUE))
           
   else:
     print 'NO MIDI INPUT PORTS!'
